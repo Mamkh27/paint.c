@@ -15,6 +15,7 @@ void ReadInput (){
     char c;
     printf("Enter your command: ");
     scanf("%c", &c);
+    
     if(c == 'q'){
         Quit();
     }
@@ -47,12 +48,35 @@ void ReadInput (){
     }
 }
 
+void Resize(int numRows, int numCols){ 
+    int updatedRows; 
+	int updatedCols; 
+	
+	scanf("%d %d", &updatedRows, &updatedCols);
+	 numRows = updatedRows;
+	 numCols = updatedCols; 
+	
+	makeCanvas(updatedRows, updatedCols); 
+	return;
+
+
 void Quit(){
-    
+    exit (0); 
 }
 
 void Help(){
-    
+
+	printf("Commands:\n");
+	printf("Help: h\n");
+	printf("Quit: q\n");
+	printf("Draw line: w row_start col_start row_end col_end\n");
+	printf("Resize: r num_rows num_cols\n");
+	printf("Add row or column: a [r | c] pos\n");
+	printf("Delete row or column: d [r | c] pos\n");
+	printf("Erase: e row col\n");
+	printf("Save: s file_name\n");
+	printf("Load: l file_name\n");
+}
 }
 
 void Write(){
@@ -159,7 +183,7 @@ void Erase (){
     canvas[row][col] = '*';
 }
 
-
+ 
 
 
 
